@@ -4,6 +4,7 @@ import { PresenceUpdateEvent } from "./events/presenceUpdate.event";
 import { discordClient } from "./client";
 import { DiscordGateway } from "./discord.gateway";
 import { DiscordEmit } from "./discord.emit";
+import { InjectKeys } from "./constants/injectKey.constant";
 
 
 @Module(
@@ -11,11 +12,11 @@ import { DiscordEmit } from "./discord.emit";
     providers: [
       InitEventsService,
       {
-        provide: "DISCORD_CLIENT",
+        provide: InjectKeys.DISCORD_CLIENT,
         useValue: discordClient
       },
       {
-        provide: "DISCORD_EVENT",
+        provide: InjectKeys.DISCORD_EVENTS,
         useValue: [PresenceUpdateEvent]
       },
       DiscordGateway,

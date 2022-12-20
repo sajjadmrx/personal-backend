@@ -5,6 +5,7 @@ import { getNowPresence } from "./utils/getNowActivity";
 import { Inject } from "@nestjs/common";
 import { Client as DiscordClient } from "discord.js";
 import { DiscordPresence, PresenceUpdated } from "./interfaces/discord.interface";
+import { InjectKeys } from "./constants/injectKey.constant";
 
 
 @WebSocketGateway({
@@ -14,7 +15,7 @@ import { DiscordPresence, PresenceUpdated } from "./interfaces/discord.interface
 })
 export class DiscordGateway {
 
-  constructor(@Inject("DISCORD_CLIENT") private discordClient: DiscordClient) {
+  constructor(@Inject(InjectKeys.DISCORD_CLIENT) private discordClient: DiscordClient) {
   }
 
   @WebSocketServer()

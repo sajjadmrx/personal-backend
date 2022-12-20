@@ -3,13 +3,14 @@ import "reflect-metadata";
 import { Client, ClientEvents } from "discord.js";
 import { DiscordEvent } from "../classes/discordEvent.class";
 import { DiscordEmit } from "../discord.emit";
+import { InjectKeys } from "../constants/injectKey.constant";
 
 @Injectable()
 export class InitEventsService implements OnModuleInit {
   constructor(
-    @Inject("DISCORD_CLIENT") private client: Client,
+    @Inject(InjectKeys.DISCORD_CLIENT) private client: Client,
     private discordEmit: DiscordEmit,
-    @Inject("DISCORD_EVENT")
+    @Inject(InjectKeys.DISCORD_EVENTS)
     private EventClasses: any[]
   ) {
   }
