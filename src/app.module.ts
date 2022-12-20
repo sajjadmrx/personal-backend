@@ -1,8 +1,10 @@
-import { Module } from '@nestjs/common';
+import { Module } from "@nestjs/common";
+import { DiscordModule } from "./modules/discord/discord.module";
 
 @Module({
-  imports: [],
+  imports: [DiscordModule],
   controllers: [],
-  providers: [],
+  providers: []
 })
-export class AppModule {}
+export class AppModule {
+}
