@@ -1,8 +1,9 @@
 import { Module } from "@nestjs/common";
 import { InitEventsService } from "./services/initEvents.service";
 import { PresenceUpdateEvent } from "./events/presenceUpdate.event";
-import { Client } from "discord.js";
 import { discordClient } from "./client";
+import { DiscordGateway } from "./discord.gateway";
+import { DiscordEmit } from "./discord.emit";
 
 
 @Module(
@@ -16,7 +17,9 @@ import { discordClient } from "./client";
       {
         provide: "DISCORD_EVENT",
         useValue: [PresenceUpdateEvent]
-      }
+      },
+      DiscordGateway,
+      DiscordEmit
     ],
     exports: []
   }

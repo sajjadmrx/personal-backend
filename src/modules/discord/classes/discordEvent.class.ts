@@ -1,10 +1,11 @@
 import { Client } from "discord.js";
-import { Inject } from "@nestjs/common";
+import { DiscordEmit } from "../discord.emit";
 
 export abstract class DiscordEvent {
 
   constructor(
-    @Inject("DISCORD_CLIENT") protected client: Client
+    protected client: Client,
+    protected discordEmit: DiscordEmit
   ) {
   }
 
