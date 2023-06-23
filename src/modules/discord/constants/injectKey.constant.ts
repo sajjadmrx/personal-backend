@@ -1,4 +1,0 @@
-export enum InjectKeys {
-  DISCORD_CLIENT = "DISCORD_CLIENT",
-  DISCORD_EVENTS = "DISCORD_EVENTS"
-}
